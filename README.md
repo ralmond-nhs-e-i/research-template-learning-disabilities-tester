@@ -1,8 +1,8 @@
 # OpenSAFELY Research Template
 
-This is a template repository for making new OpenSAFELY resarch projects.
+This is repo is based on the template repository for making new OpenSAFELY research projects.
 
-# _title goes here_
+# Researching how people with learning disabilites have been impacted by the COVID-19 pandemic.
 
 This is the code and configuration for our paper, _name goes here_
 
