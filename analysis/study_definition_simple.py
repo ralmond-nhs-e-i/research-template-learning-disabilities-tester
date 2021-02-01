@@ -12,13 +12,23 @@ index_date = "2020-01-01"
 
 ## STUDY POPULATION
 
-study = StudyDefintion(
+study = StudyDefinition(
   
   default_expectations = {
     "date": {"earliest": index_date, "latest": "today"}, # date range for simulation
-  } 
-)
+    "rate": "uniform",
+    "incidence": 1
+  }, 
+  population = patients.registered_as_of(index_date),
 
+ stp = patients.registered_practice_as_of(
+        index_date,
+        returning="stp_code",
+        return_expectations={
+            "category": {"ratios": {"STP1" : 0.3, "STP2" : 0.2, "STP3" : 0.5}},
+        }
+ )
+)
 
 
 
