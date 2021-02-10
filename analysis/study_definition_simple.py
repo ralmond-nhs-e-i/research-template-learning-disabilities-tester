@@ -19,13 +19,14 @@ study = StudyDefinition(
     "rate": "uniform",
     "incidence": 1
   }, 
+  
   population = patients.registered_as_of(index_date),
 
  stp = patients.registered_practice_as_of(
         index_date,
         returning="stp_code",
         return_expectations={
-            "category": {"ratios": {"STP1" : 0.3, "STP2" : 0.2, "STP3" : 0.5}},
+            "category": {"ratios": dict_stp},
         }
  )
 )
