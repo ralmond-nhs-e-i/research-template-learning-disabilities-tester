@@ -16,8 +16,8 @@ from cohortextractor import (
 #covid_codelist = codelist(["U071", "U072"], system = "icd10")
 
 ld_codes = codelist_from_csv(
-    "codelists\rosealmond-learning-disabilities-qof-codes-primary-care-domain-reference-set-portal-4ef3a073.csv", 
-    system = "snomed", 
+    "codelists\opensafely-severe-and-profound-learning-disability-flags-44ef542a.csv", 
+    system = "ctv3", 
     column = "code",
 )
 
@@ -68,7 +68,8 @@ study = StudyDefinition(
             "category": {"ratios": {"100": 0.1, "200": 0.2, "300": 0.7}},
         }
     ),
-    # GEOGRAPHIC REGION CALLED STP
+
+  # GEOGRAPHIC REGION CALLED STP
     stp=patients.registered_practice_as_of(
         "2020-02-01",
         returning="stp_code",
@@ -88,15 +89,17 @@ study = StudyDefinition(
                     "STP10": 0.1,
                 }
             }
-        }
+        },
+            
+  # https://codelists.opensafely.org/codelist/opensafely/severe-and-profound-learning-disability-flags/44ef542a/#full-list
+    ld_dates=patients.categorised_as(
+        ld_codes,
+        returning="date",
+        find_first_match_in_period=True,
+        include_month=True,
+        return_expectations={"incidence": 0.2},
     )
-
-
-
-
-
-
-
+  )
 )
 
 

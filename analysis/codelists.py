@@ -6,7 +6,7 @@ from cohortextractor import(
 covid_codelist = codelist(["U071", "U072"], system = "icd10")
 
 ld_codes = codelist_from_csv(
-    "codelists\rosealmond-learning-disabilities-qof-codes-primary-care-domain-reference-set-portal-4ef3a073.csv, 
-    system = "snomed", 
+    "codelists\opensafely-severe-and-profound-learning-disability-flags-44ef542a.csv", 
+    system = "CTV3", 
     column = "code",
 )
