@@ -15,6 +15,7 @@ from cohortextractor import (
 ## STUDY POPULATION
 
 study = StudyDefinition(  
+
   default_expectations = {
     "date": {"earliest": "1970-01-01", "latest": "today"}, # date range for simulation
     "rate": "uniform",
@@ -38,7 +39,7 @@ study = StudyDefinition(
     return_expectations = {
       "rate": "universal",
       "int": {"distribution": "population_ages"},
-    },
+    }
   ),
 
   # SEX
@@ -56,7 +57,7 @@ study = StudyDefinition(
         return_expectations={
             "rate": "universal",
             "category": {"ratios": {"100": 0.1, "200": 0.2, "300": 0.7}},
-        },
+        }
     ),
     # GEOGRAPHIC REGION CALLED STP
     stp=patients.registered_practice_as_of(
@@ -77,9 +78,7 @@ study = StudyDefinition(
                     "STP9": 0.1,
                     "STP10": 0.1,
                 }
-            },
-        },
-    ),
-
-
+            }
+        }
+    )
 )
