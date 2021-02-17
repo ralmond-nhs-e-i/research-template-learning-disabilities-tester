@@ -40,10 +40,3 @@ study = StudyDefinition(
 
 
 
-
-
-
-
-
-
-
