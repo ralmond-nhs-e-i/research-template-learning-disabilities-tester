@@ -68,7 +68,7 @@ study = StudyDefinition(
 
   # GEOGRAPHIC REGION CALLED STP
     stp = patients.registered_practice_as_of(
-            "1975-02-01",
+            "2020-01-01",
             returning="stp_code",
             return_expectations={
                 "category": {"ratios": dict_stp},

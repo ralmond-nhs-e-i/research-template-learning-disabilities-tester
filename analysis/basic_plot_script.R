@@ -4,7 +4,7 @@ library('tidyverse')
 
 ## import data
 df_input <- read_csv(
-  here::here("output", "input_simple.csv"), 
+  here::here("output", "input.csv"), 
   col_types = cols(
     patient_id = col_integer(),
     stp = col_character()
