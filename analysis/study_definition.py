@@ -12,14 +12,8 @@ from cohortextractor import (
   combine_codelists
   )
 
-# import codelists
-#covid_codelist = codelist(["U071", "U072"], system = "icd10")
-
-ld_codes = codelist_from_csv(
-    "codelists\opensafely-severe-and-profound-learning-disability-flags-44ef542a.csv", 
-    system = "ctv3", 
-    column = "code",
-)
+# import all codelists from codelists.py file
+from codelists import *    
 
 ## STUDY POPULATION
 
@@ -91,19 +85,19 @@ study = StudyDefinition(
             }
         },
             
-  # https://codelists.opensafely.org/codelist/opensafely/severe-and-profound-learning-disability-flags/44ef542a/#full-list
-    ld_dates=patients.categorised_as(
-        ld_codes,
-        returning="date",
-        find_first_match_in_period=True,
-        include_month=True,
-        return_expectations={"incidence": 0.2},
+  # # https://codelists.opensafely.org/codelist/opensafely/severe-and-profound-learning-disability-flags/44ef542a/#full-list
+  #   severe_and_profound_learning_disability_dates=patients.with_these_clinical_events(
+  #       severe_and_profound_learning_disability_codes,
+  #       on_or_before= "today"
+  #       returning = "binary_flag",
+  #       return_expectations={"incidence": 0.2},
+  #   )
+
+ intel_dis_incl_downs_syndrome=patients.with_these_clinical_events(
+        intellectual_disability_including_downs_syndrome_codes,
+        on_or_before= "today",
+        returning="binary_flag",
+        return_expectations={"incidence": 0.01,},
     )
   )
 )
-
-
-
-
-
-
