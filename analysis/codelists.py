@@ -9,7 +9,7 @@ covid_codelist = codelist(["U071", "U072"], system = "icd10")
 # https://codelists.opensafely.org/codelist/opensafely/severe-and-profound-learning-disability-flags/44ef542a/
 severe_and_profound_learning_disability_codes = codelist_from_csv(
     "codelists/opensafely-severe-and-profound-learning-disability-flags-44ef542a.csv", 
-    system = "CTV3", 
+    system = "ctv3", 
     column = "code",
 )
 
