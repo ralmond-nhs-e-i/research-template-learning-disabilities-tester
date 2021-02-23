@@ -1,10 +1,11 @@
+
 library('here')
 
 library('tidyverse')
 
 ## import data
 df_input <- read_csv(
-  here::here("output", "input.csv"), 
+  here::here("GitHub/research-template-learning-disabilities-tester/output", "input.csv"), 
   col_types = cols(
     patient_id = col_integer(),
     stp = col_character()
@@ -34,8 +35,6 @@ plot_stppop_bar <- df_stppop %>%
     plot.title.position = "plot",
     plot.caption.position =  "plot"
   )
-plot_stppop_bar
-
 
 
 

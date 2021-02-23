@@ -1,7 +1,7 @@
 version: '3.0'
 
 expectations:
-  population_size: 100
+  population_size: 10000
 
 actions:
 
@@ -12,10 +12,16 @@ actions:
         cohort: output/cohorts/input.csv
 
 
-  plot_stppop:
-    run: r:latest analysis/plot_stppop.R
+  plot_stppop_bar:
+    run: r:latest analysis/basic_plot_script.R
     needs: [generate_study_population]
     outputs:
       moderately_sensitive:
         figure1: output/plots/plot_stppop_bar.png
 
+  plot_stppop_map:
+    run: r:latest analysis/basic_map_plot_script.R
+    needs: [generate_study_population]
+    outputs:
+      highly_sensitive:
+        cohort: output/cohorts/stppop_map.csv

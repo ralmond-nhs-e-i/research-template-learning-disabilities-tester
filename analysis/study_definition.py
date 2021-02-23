@@ -75,27 +75,6 @@ study = StudyDefinition(
             }
     ),
 
-    # stp= patients.registered_as_of(
-    #     "1975-02-01",
-    #     #returning="stp_code",
-    #     return_expectations={
-    #         "rate": "universal",
-    #         "category": {
-    #             "ratios": {
-    #                 "STP1": 0.1,
-    #                 "STP2": 0.1,
-    #                 "STP3": 0.1,
-    #                 "STP4": 0.1,
-    #                 "STP5": 0.1,
-    #                 "STP6": 0.1,
-    #                 "STP7": 0.1,
-    #                 "STP8": 0.1,
-    #                 "STP9": 0.1,
-    #                 "STP10": 0.1,
-    #             }
-    #         }
-    #     },
-
   # # https://codelists.opensafely.org/codelist/opensafely/severe-and-profound-learning-disability-flags/44ef542a/#full-list
     severe_and_profound_learning_disability=patients.with_these_clinical_events(
         severe_and_profound_learning_disability_codes,
@@ -103,6 +82,8 @@ study = StudyDefinition(
         returning = "binary_flag",
         return_expectations={"incidence": 0.02}, # ~1.8% of England population have a learning disability
     ),
+
+
 
  intel_dis_incl_downs_syndrome=patients.with_these_clinical_events(
         intellectual_disability_including_downs_syndrome_codes,
